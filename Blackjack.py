@@ -1,3 +1,5 @@
+import reduce
+
 class Casting:
     def to_int(s):
         if type(s) == str:
@@ -17,27 +19,25 @@ class Game:
         def game1(self):
             card = Deck.randomcard(deck)
             cardlist = list.append(card)
+            numberlist = []
             print(card)
-            print(carlist)
+            print(cardlist)
             has_a = filter(lambda x: x[1] == "a", cardlist)
             if has_a == True:
-                a value = input("A값을 1과 11중에 선택하세요.")
+                while (a_value != 1 or a_value != 11)
+                    a_value = input("A값을 1과 11중에 선택하세요.")
                     if a_value == 1:
                         numberlist.append(1)
-                    elif: 
-                        a_value == 11:
+                    elif a_value == 11:
                         numberlist.append(11)
-                    else:
-                        a value = input("1이랑 11중에 선택하라고.")    
-                        for i in range(4):
-                            card.lstrip('{}'.format(shape))
-                            shape = ['s','c','h','d']        
-                            
-                        has_jqk = filter(lambda x: x[1] != "a" and type[x] = str, cardlist)
-                            cardlist.append(10)
-
-
-
+                
+                    for i in range(4):
+                        card.lstrip('{}'.format(shape))
+                        shape = ['s','c','h','d']        
+                        
+                has_jqk = filter(lambda x: type([1]) = str, cardlist)
+                if has_jqk == True:
+                    cardlist.append(10)
 
 
         def game2(self):
@@ -49,27 +49,28 @@ class Game:
 
 class Player(Game):
 
-        if list의합 = 21:
+        super().game2()
+        if cardsum == 21:
             print("승")
-        if list의합 > 21:
+        if cardsum > 21:
             print("패")
-        if list의합 <21:
-            super()
+        if cardsum < 21:
+            super().game1()
             hit = input("카드를 더 받으려면 'hit', 그만 받으려면 'stand'를 입력하세요.")
-            if hitorstand = 2:
+            if hitorstand == 2:
                 break
-                if 딜러 < 플레이어:
+                if Dealer.cardsum < Player.cardsum:
                     print("승")
-                if 딜러 > 플레이어:
+                if Dealer.cardsum > Player.cardsum:
                     print("패")
 
 
-class Dealer:
-
-    def reveal():
-        print(card1)
+class Dealer(Game):
+super().game2()
+def reveal(self):
+    print(card1)
         
-if 리스트의 합 > 17:
-        break
+if cardsum > 17:
+    break
 
 ===================main flow========================
