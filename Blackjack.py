@@ -75,5 +75,8 @@ def reveal(self):
 if cardsum > 17:
     break
 
+
+print ("rrrrrr")
+=======
 # ===================main flow========================
 print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
