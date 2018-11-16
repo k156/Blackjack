@@ -5,13 +5,15 @@ class Casting:
         else:
             return s
 
+    def __str__(s):
+        return s
+
 class Deck:
     deck = [heart1,2,3,4,spade1,2,3,4,diamond1,2,3,4,clover1,2,3,4]
 
     def randomcard ():
         import random
         ddd
-
 
 
 class Game:
@@ -51,4 +53,3 @@ if 리스트의 합 > 17:
 
 ===================main flow========================
 
-print ("DDDDDDDDDDDDDCCCCCCCCBBBBBBBAAAAAAAAAAAa")
