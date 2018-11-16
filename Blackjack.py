@@ -24,17 +24,17 @@ class Game:
             print(cardlist)
             has_a = filter(lambda x: x[1] == "a", cardlist)
             if has_a == True:
-                while (a_value != 1 or a_value != 11)
+                while (a_value != 1 and a_value != 11):
                     a_value = input("A값을 1과 11중에 선택하세요.")
                     if a_value == 1:
                         numberlist.append(1)
                     elif a_value == 11:
                         numberlist.append(11)
                 
-                    for i in range(4):
-                        card.lstrip('{}'.format(shape))
-                        shape = ['s','c','h','d']        
-                        
+                for i in range(4):
+                card.lstrip('{}'.format(shape))
+                shape = ['s','c','h','d']        
+                
                 has_jqk = filter(lambda x: type([1]) = str, cardlist)
                 if has_jqk == True:
                     cardlist.append(10)
