@@ -51,3 +51,4 @@ if 리스트의 합 > 17:
 
 ===================main flow========================
 
+print ("DDDDDDDDDDDDDCCCCCCCCBBBBBBBAAAAAAAAAAAa")
