@@ -15,7 +15,7 @@ class Deck:
 
 
 class Game:
-    while (cardsum <21):
+    cardsum=[]
         def game1(self):
             card = Deck.randomcard(deck)
             cardlist = list.append(card)
@@ -74,7 +74,7 @@ if cardsum > 17:
     break
 
 
-print ("rrrrrr")
-=======
 # ===================main flow========================
-print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+while (cardsum <21):
+    Player.game1()
