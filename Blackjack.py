@@ -8,28 +8,29 @@ class Casting:
     def __str__(s):
         return s
 
-class Deck:
-    deck_m = ['heart', 'spade', 'diamond', 'clover']
-    deck_s = ['a',2,3,4,5,6,7,8,9,10,'q','k','j']
-    shape, number = '',''
-    
-    def randomcard():
-        import random
-        shape = random.choice(deck_m)
-        number = random.choice(Casting.to_int(deck_s))
         
+from functools import reduce
+import random
+
+
+deck = ['sa','s2','s3','s4','s5','s6','s7','s8','s9','s10','sj','sq','sk','ca','c2','c3','c4','c5','c6','c7','c8','c9','c10','cj','cq','ck','ha','h2','h3','h4','h5','h6','h7','h8','h9','h10','hj','hq','hk','da','d2','d3','d4','d5','d6','d7','d8','d9','d10','dj','dq','dk']
+
 
 class Card:
-    from functools import reduce
-    
-    cardlist = []
-    numberlist = []
-    cardsum = 0
 
-    def cardprocess(self):
-        card = [Deck.randomcard(shape), Deck.randomcard(number)]
-        cardlist.append(card) 
-        print(cardlist)
+    def cardprocessor(self):
+        random.shuffle(deck)
+        self.card = deck.pop()
+        print(self.card)
+
+        self.cardlist = []
+        self.cardlist = self.cardlist.append(self.card)
+        print(self.cardlist)
+
+
+
+        self.cardsum = 0
+        
 
         if card[2] == 'j' or 'q' or 'k':
             numberlist.append(10)
@@ -42,8 +43,8 @@ class Card:
 
 class Player(Card):
     a_value = ''
-    def game(self,numberlist):
-        Card.cardprocess()
+    def game(self):
+        self.card = Card.card()
         if card[2] == 'a':
             while (a_value ==''):
                 a_value = input("A값을 1과 11중에 선택하세요.")
@@ -75,7 +76,7 @@ class Player(Card):
                                         
 
 class Dealer(Game):
-    Card.cardprocess()
+    Card.card()
     def reveal(self):
         print(cardlist[0])
     
