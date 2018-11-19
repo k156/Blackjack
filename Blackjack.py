@@ -1,5 +1,3 @@
-import reduce
-
 class Casting:
     def to_int(s):
         if type(s) == str:
@@ -11,72 +9,81 @@ class Casting:
         return s
 
 class Deck:
-    def randomcard ():
+    deck_m = ['heart', 'spade', 'diamond', 'clover']
+    deck_s = ['a',2,3,4,5,6,7,8,9,10,'q','k','j']
+    shape, number = '',''
+    
+    def randomcard():
         import random
-        deck = ['sa','s2','s3','s4','s5','s6','s7','s8','s9','s10','sj','sq','sk','ca','c2','c3','c4','c5','c6','c7','c8','c9','c10','cj','cq','ck','ha','h2','h3','h4','h5','h6','h7','h8','h9','h10','hj','hq','hk','da','d2','d3','d4','d5','d6','d7','d8','d9','d10','dj','dq','dk']
-        random.choice(deck)
+        shape = random.choice(deck_m)
+        number = random.choice(Casting.to_int(deck_s))
+        
 
-class Game:
-    cardsum=[]
-        def game1(self):
-            card = Deck.randomcard(deck)
-            cardlist = list.append(card)
-            numberlist = []
-            print(card)
-            print(cardlist)
-            has_a = filter(lambda x: x[1] == "a", cardlist)
-            if has_a == True:
-                while (a_value != 1 and a_value != 11):
-                    a_value = input("A값을 1과 11중에 선택하세요.")
-                    if a_value == 1:
-                        numberlist.append(1)
-                    elif a_value == 11:
-                        numberlist.append(11)
-                
-                for i in range(4):
-                card.lstrip('{}'.format(shape))
-                shape = ['s','c','h','d']        
-                
-                has_jqk = filter(lambda x: type([1]) = str, cardlist)
-                if has_jqk == True:
-                    cardlist.append(10)
+class Card:
+    from functools import reduce
+    
+    cardlist = []
+    numberlist = []
+    cardsum = 0
+
+    def cardprocess(self):
+        card = [Deck.randomcard(shape), Deck.randomcard(number)]
+        cardlist.append(card) 
+        print(cardlist)
+
+        if card[2] == 'j' or 'q' or 'k':
+            numberlist.append(10)
+        else:
+            pass
+
+    def summation(self):
+        cardsum = reduce(lambda x, y: x + y, numberlist)
 
 
-        def game2(self):
-            self.game1()
-            numberlist = []
-            numberlist.append(Casting.to_int(card))
-            cardsum = reduce(lambda x, y: x + y, numberlist)
+class Player(Card):
+    a_value = ''
+    def game(self,numberlist):
+        Card.cardprocess()
+        if card[2] == 'a':
+            while (a_value ==''):
+                a_value = input("A값을 1과 11중에 선택하세요.")
+                if a_value == 1:
+                    numberlist.append(1)
+                elif a_value == 11:
+                    numberlist.append(11)
+                else:
+                    continue
+        Card.summation(numberlist)
 
-
-class Player(Game):
-
-        super().game2()
-        if cardsum == 21:
-            print("승")
-        if cardsum > 21:
-            print("패")
-        if cardsum < 21:
-            super().game1()
+    game()
+    if cardsum == 21:
+        print("승")
+    elif cardsum > 21:
+        print("패")
+    else:
+        while (cardsum <21):
             hit = input("카드를 더 받으려면 'hit', 그만 받으려면 'stand'를 입력하세요.")
             if hitorstand == 2:
                 break
-                if Dealer.cardsum < Player.cardsum:
-                    print("승")
-                if Dealer.cardsum > Player.cardsum:
+                if Dealer.cardsum == Player.cardsum:
+                    print("비겼습니다.")
+                elif Dealer.cardsum > Player.cardsum:
                     print("패")
-
+                else:
+                    game()
+                
+                                        
 
 class Dealer(Game):
-super().game2()
-def reveal(self):
-    print(card1)
-        
-if cardsum > 17:
-    break
-
+    Card.cardprocess()
+    def reveal(self):
+        print(cardlist[0])
+    
 
 # ===================main flow========================
+gamestart = ''
 
-while (cardsum <21):
-    Player.game1()
+while (gamestart == ''):
+    gamestart = input("게임을 시작하려면 엔터를 누르세요.")
+    player = Player()
+    dealer = Dealer()

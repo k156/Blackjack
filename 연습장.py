@@ -8,7 +8,6 @@ cardlist = []
 while(len(cardlist) <= 2):
     card = [random.choice(deck_m), random.choice(deck_s)]
     cardlist.append( card )
-
     print(cardlist)
 
 input_msg = input ("hit or stand (hit : 1, stand : 2 -->")
