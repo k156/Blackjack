@@ -10,10 +10,6 @@ class Casting:
         else:
             return s
 
-    def __str__(s):
-        return s
-
-
 class Card:
   
     def __init__(self):
@@ -48,11 +44,10 @@ class Card:
               
         print(self.cardsum)
         
-        
 
-class Dealer(Card):
-
-
+# class Player(Card):
+#     def __init__(self):
+#         super().__init__(self)
 
 
 # a.cardlist()
@@ -60,5 +55,5 @@ class Dealer(Card):
 a = Card()
 a.cardsum()
 
-d = Dealer()
+a
 
