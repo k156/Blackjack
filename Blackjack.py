@@ -17,28 +17,38 @@ deck = ['sa','s2','s3','s4','s5','s6','s7','s8','s9','s10','sj','sq','sk','ca','
 
 
 class Card:
-
+  
     def __init__(self):
+
+        global deck
+        self.cardlist = []                 
+        self.numberlist = [] 
+
         random.shuffle(deck)
         self.card = deck.pop()
+        self.cardlist.append( self.card )
         
-        self.cardlist = []
-        self.cardlist.append(self.card)
+        num = self.card.lstrip(self.card[0])
+        
+        if num == 'k' or num == 'q' or num == 'j':
+            num = 10
+
+        elif num == 'a':
+            num = 1    
+        
+        else : num = Casting.to_int(num)
+
+        self.numberlist.append(num)
+
         print(self.cardlist)
-        
-        self.numberlist = []
-        self.numberlist.append(Casting.to_int(self.card.lstrip(self.card[0])))
-        
         print(self.numberlist)
-        
+  
 
-        if card[2] == 'j' or 'q' or 'k':
-            numberlist.append(10)
-        else:
-            pass
+    def cardsum(self):
 
-    def summation(self):
-        cardsum = reduce(lambda x, y: x + y, numberlist)
+        self.cardsum = reduce(lambda x, y: x + y, self.numberlist)       
+              
+        print(self.cardsum)
 
 
 class Player(Card):
