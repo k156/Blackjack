@@ -18,18 +18,18 @@ deck = ['sa','s2','s3','s4','s5','s6','s7','s8','s9','s10','sj','sq','sk','ca','
 
 class Card:
 
-    def cardprocessor(self):
+    def __init__(self):
         random.shuffle(deck)
         self.card = deck.pop()
-        print(self.card)
-
+        
         self.cardlist = []
-        self.cardlist = self.cardlist.append(self.card)
+        self.cardlist.append(self.card)
         print(self.cardlist)
-
-
-
-        self.cardsum = 0
+        
+        self.numberlist = []
+        self.numberlist.append(Casting.to_int(self.card.lstrip(self.card[0])))
+        
+        print(self.numberlist)
         
 
         if card[2] == 'j' or 'q' or 'k':
@@ -42,7 +42,7 @@ class Card:
 
 
 class Player(Card):
-    a_value = ''
+    a_value = 0
     def game(self):
         self.card = Card.card()
         if card[2] == 'a':
@@ -57,6 +57,7 @@ class Player(Card):
         Card.summation(numberlist)
 
     game()
+    game()
     if cardsum == 21:
         print("승")
     elif cardsum > 21:
@@ -70,8 +71,9 @@ class Player(Card):
                     print("비겼습니다.")
                 elif Dealer.cardsum > Player.cardsum:
                     print("패")
-                else:
-                    game()
+            if hitorstand == 'hit'
+                game()
+                continue
                 
                                         
 
