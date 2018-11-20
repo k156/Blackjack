@@ -1,41 +1,46 @@
-# import random
+import random
+from functools import reduce
 
-# class Deck:
+deck = ['sa','s2','s3','s4','s5','s6','s7','s8','s9','s10','sj','sq','sk','ca','c2','c3','c4','c5','c6','c7','c8','c9','c10','cj','cq','ck','ha','h2','h3','h4','h5','h6','h7','h8','h9','h10','hj','hq','hk','da','d2','d3','d4','d5','d6','d7','d8','d9','d10','dj','dq','dk']
 
-#     def card():
-#         deck_m = ['heart', 'spade', 'diamond', 'clover']
-#         deck_s = ['a',2,3,4,5,6,7,8,9,10,'q','k','j']
-        
-#         print([random.choice(deck_m), random.choice(deck_s)])
-        
-     
-# Deck.card()
-
-
-card = ['q1','q2','s11','d1']
-num = []
-
-for i in card:
-    
-   num.append(i.lstirp(i[0]))
-
-print(num)
+class Casting:
+    def to_int(s):
+        if type(s) == str:
+            return int(s.strip())
+        else:
+            return s
 
 
 
-# 정민님 card class
+class Card:
+  
+    def __init__(self):
+        while(int(self.cardlist) < 21 ):
+            global deck
+            self.cardlist = []                 
+            self.numberlist = [] 
 
-# class Card:
+            random.shuffle(deck)
+            self.card = deck.pop()
+            self.cardlist.append( self.card )
+            
+            self.num = self.card.lstrip(self.card[0])
+            
+            if self.num == 'k' or self.num == 'q' or self.num == 'j':
+                  self.num = 10
+            # elif 
 
-#    def __init__(self):
-#        random.shuffle(deck)
-#        self.card = deck.pop()
+            else : self.num = Casting.to_int(self.num)
 
-#        self.cardlist = []
-#        self.cardlist.append(self.card)
-#        print(self.cardlist)
+            self.numberlist.append(self.num)
 
-#        self.numberlist = []
-#        self.numberlist.append(Casting.to_int(self.card.lstrip(self.card[0])))
+        # print(self.cardlist)
+        # print(self.numberlist)
+  
 
-#        print(self.numberlist)
+    def cardsum(self):
+
+        self.cardsum = reduce(lambda x, y: x + y, self.numberlist) 
+
+
+      
