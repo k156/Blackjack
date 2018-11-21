@@ -20,30 +20,70 @@ class Card:
 
         random.shuffle(deck)
         self.card = deck.pop()
-        self.cardlist.append( self.card )
+        self.cardlist.append(self.card)
+        self.num = self.card.lstrip(self.card[0])
         
-        num = self.card.lstrip(self.card[0])
-        
-        if num == 'k' or num == 'q' or num == 'j':
-            num = 10
+        if self.num == 'k' or self.num == 'q' or self.num == 'j':
+            self.num = 10
+        # elif 
 
-        elif num == 'a':
-            num = 1    
-        
-        else : num = Casting.to_int(num)
+        else : self.num = Casting.to_int(self.num)
 
-        self.numberlist.append(num)
+        self.numberlist.append(self.num)
 
-        print(self.cardlist)
-        print(self.numberlist)
+        # print(self.cardlist)
+        # print(self.numberlist)
   
 
-    def cardsum(self):
+    def summation(self):
 
         self.cardsum = reduce(lambda x, y: x + y, self.numberlist)       
-              
-        print(self.cardsum)
+           
 
+
+class Player(Card):
+    def game(self):
+        super().__init__()
+        super().summation()
+        
+        print(self.cardlist)
+    
+
+        super().__init__()
+        super().summation()
+        if self.cardsum == 21:   print("승")
+
+        elif self.cardsum > 21:   print("패")
+
+        elif self.cardsum < 21:
+            hitorstand = input("Hit 하고 싶으면 1, Stand 하고 싶으면 2를 입력하세요.")
+            
+            if hitorstand == '1':   
+                self.num = self.card.lstrip(self.card[0])
+                print("p cardsum>>" self.cardsum)
+            
+
+            if hitorstand == '2': 
+                print("p cardsum>>" self.cardsum)
+
+        
+
+class Dealer(Card):
+    def __init__(self):
+        
+        super().__init__()
+        super().summation()
+
+        print("d carsum>>" self.cardsum)
+
+# a.cardlist()
 
 a = Card()
-a.cardsum()        
+a.summation()
+
+
+b = Player()
+b.game
+
+
+a = Dealer()

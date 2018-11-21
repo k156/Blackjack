@@ -26,15 +26,15 @@ class Card:
 
         random.shuffle(deck)
         self.card = deck.pop()
-        self.cardlist.append( self.card )
+        self.cardlist.append(self.card)
         
-        num = self.card.lstrip(self.card[0])
+        self.num = self.card.lstrip(self.card[0])
         
-        if num == 'k' or num == 'q' or num == 'j':
-            num = 10
+        if self.num == 'k' or self.num == 'q' or self.num == 'j':
+            self.num = 10
 
-        elif num == 'a':
-            num = 1    
+        elif self.num == 'a':
+            self.num = 1    
         
         else : num = Casting.to_int(num)
 
