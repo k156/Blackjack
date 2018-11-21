@@ -14,14 +14,13 @@ class Casting:
 class Card:
     deck = []
     def __init__(self):
-        # self.deck = g_deck
+        
         self.cardlist = []        
         self.numberlist = [] 
-        self.cardsum = 0
+        
 
     def mk_cardlist(self):
         global g_deck
-        print("g_deck>>", g_deck)
         self.card = g_deck.pop(0)
         self.cardlist.append( self.card )
         
@@ -33,83 +32,103 @@ class Card:
         if self.num == 'k' or self.num == 'q' or self.num == 'j':
             self.num = 10
         
-        elif  self.num == 'a':
-            self.num = 11 
+        elif  self.num == 'a': pass
 
         else : self.num = Casting.to_int(self.num)
 
-        self.numberlist.append(self.num)  
+        self.numberlist.append(self.num)
 
     def cardsummation(self):
+        ret = 0
         for i in self.numberlist:
-            self.cardsum += i      
-           
-      
+            if i == 'a':
+                if (21 - self.cardsum) <= 10:
+                    i = 11
+                else:
+                    i = 1
+
+            ret += i
+
+        self.cardsum = ret
+
+        return ret
+
+        # self.cardsum = reduce(self.xxxx, self.numberlist) 
+
 
 class Player(Card):
     def __init__(self):
         super().__init__()
-
         super().mk_cardlist()
         super().mk_numberlist()
-        super().cardsummation()
-        
-        print(self.cardlist)
-        
-        
+
+        while(Player.cardsummation() < 21):
+            super().mk_cardlist()
+            super().mk_numberlist()
+            print("플레이어의 카드>>>", self.cardlist)
+            
+            if self.cardsum == 21:
+                print(self.cardsum)
+                
+            elif self.cardsum > 21:
+                print(self.cardsum)
+                
+            elif self.cardsum < 21:
+                hitorstand = input("Hit 하고 싶으면 1, Stand 하고 싶으면 2를 입력하세요.")
+
+                if hitorstand == '1':
+                    continue
+
+                elif hitorstand == '2': 
+                    
+                    print("플레이어의 카드>>>", self.cardlist)
+                    print("플레이어의 카드 총 합>>>",self.cardsum)
+                    break
+
+    @staticmethod
+    def cardsummation(self):
+            ret = 0
+            for i in self.numberlist:
+                if i == 'a':
+                    input_a = input("a를 1로 하겠습니까? -> 1입력 아니면 11로 하겠습니까? -> 11입력")
+                    if input_a == '11' or input_a == '1':
+                        i = int(input_a)
+                    else :
+                        print("다시입력하세요")
+                            
+                ret += i
+
+            self.cardsum = ret
+
+            return ret       
+
+
          
 class Dealer(Card):
     def __init__(self):
         
         super().__init__()
-        
-        while(self.cardsum < 17):
+        super().mk_cardlist()
+        super().mk_numberlist()
+     
+        while(self.cardsummation() < 17):
             super().mk_cardlist()
             super().mk_numberlist()
-            self.cardsummation()
             
-        print("딜러의 카드리스트>>", self.cardlist)
-        print(self.cardsum)
+        print("딜러의 카드>>", self.cardlist)
+        print("딜러의 카드 합>>>", self.cardsum)
+            
 
-# a.cardlist()
 a = Player()
 b = Dealer() 
 
-# while(a.cardsum < 21):
-    
-#     if a.cardsum == 21:   print("승")
-
-#     elif a.cardsum > 21:   print("패")
-
-#     elif a.cardsum < 21:
-#         hitorstand = input("Hit 하고 싶으면 1, Stand 하고 싶으면 2를 입력하세요.")
-        
-#         if hitorstand == '1':   
-#             continue
-
-#         if hitorstand == '2': 
-#             print(a.cardsum)
-#             break
-
-
-
-# while(b.cardsum < 17)
-
-#     if b.cardsum == 21:   
-#         print(b.cardsum)
-#         break
-
-#     elif b.cardsum > 21:   
-#         print("player 승")
-
-
 
 print("승패 결과는???????")
-if a.cardsum < b.cardsum :
+if a.cardsum < b.cardsum < 21 :
     print("승")
 
-elif a.cardsum == b.cardsum :
+elif 21 > a.cardsum == b.cardsum :
     print("비김")    
 
-elif a.cardsum > b.cardsum :
+elif 21 > a.cardsum > b.cardsum :
     print("패")    
