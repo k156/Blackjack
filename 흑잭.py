@@ -1,8 +1,7 @@
 import random
 from functools import reduce
 
-g_deck = ['sa','s2','s3','s4','s5','s6','s7','s8','s9','s10','sj','sq','sk','ca','c2','c3','c4','c5','c6','c7','c8','c9','c10','cj','cq','ck','ha','h2','h3','h4','h5','h6','h7','h8','h9','h10','hj','hq','hk','da','d2','d3','d4','d5','d6','d7','d8','d9','d10','dj','dq','dk']
-random.shuffle(g_deck)
+deck = ['sa','s2','s3','s4','s5','s6','s7','s8','s9','s10','sj','sq','sk','ca','c2','c3','c4','c5','c6','c7','c8','c9','c10','cj','cq','ck','ha','h2','h3','h4','h5','h6','h7','h8','h9','h10','hj','hq','hk','da','d2','d3','d4','d5','d6','d7','d8','d9','d10','dj','dq','dk']
 
 class Casting:
     def to_int(s):
@@ -12,21 +11,18 @@ class Casting:
             return s
 
 class Card:
-    deck = []
+  
     def __init__(self):
-        # self.deck = g_deck
-        self.cardlist = []        
-        self.numberlist = [] 
-        self.cardsum = 0
 
-    def mk_cardlist(self):
-        global g_deck
-        print("g_deck>>", g_deck)
-        self.card = g_deck.pop(0)
-        self.cardlist.append( self.card )
+        global deck
+        self.cardlist = []          
+        self.numberlist = [] 
         
-    
-    def mk_numberlist(self):    
+        
+        random.shuffle(deck)
+        self.card = deck.pop()
+
+        self.cardlist.append( self.card )
         
         self.num = self.card.lstrip(self.card[0])
         
@@ -34,26 +30,26 @@ class Card:
             self.num = 10
         
         elif  self.num == 'a':
-            self.num = 11 
+            self.num = 11
 
         else : self.num = Casting.to_int(self.num)
 
-        self.numberlist.append(self.num)  
+        self.numberlist.append(self.num)
+
+        # print(self.cardlist)
+        # print(self.numberlist)
+    
 
     def cardsummation(self):
-        for i in self.numberlist:
-            self.cardsum += i      
+
+        self.cardsum = reduce(lambda x, y: x + y, self.numberlist)       
            
       
 
 class Player(Card):
     def __init__(self):
         super().__init__()
-
-        super().mk_cardlist()
-        super().mk_numberlist()
         super().cardsummation()
-        
         print(self.cardlist)
         
         
@@ -62,14 +58,27 @@ class Dealer(Card):
     def __init__(self):
         
         super().__init__()
-        
+        super().cardsummation()
+
         while(self.cardsum < 17):
-            super().mk_cardlist()
-            super().mk_numberlist()
-            self.cardsummation()
+            random.shuffle(deck)
+            self.card = deck.pop()
+            self.cardlist.append( self.card )
+            self.num = self.card.lstrip(self.card[0])
+        
+            if self.num == 'k' or self.num == 'q' or self.num == 'j':
+                self.num = 10
             
-        print("딜러의 카드리스트>>", self.cardlist)
-        print(self.cardsum)
+            elif  self.num == 'a':
+                self.num = 11
+
+            else : self.num = Casting.to_int(self.num)
+
+            self.numberlist.append(self.num)
+            self.cardsummation()
+        
+        print(self.cardlist)
+        print("딜러의 카드 총 합>>>",self.cardsum)
 
 # a.cardlist()
 a = Player()
