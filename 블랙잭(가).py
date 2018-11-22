@@ -53,8 +53,9 @@ while(cardsum <= 21):
            elif (i[1]) == "q" or (i[1]) == "k" or (i[1]) == "j":
                i[1] = 10
 
+
            cardsum = cardsum + i[1]
-           
+        
        
        break
 
