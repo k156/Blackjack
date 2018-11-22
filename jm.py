@@ -38,35 +38,29 @@ class Game:
             pass
         else:
             self.num = Casting.to_int(self.num)
-
+        
         print("intnum>>>", self.num)
+        self.numberlist.append(self.num)
+        print("numberlist>>>", self.numberlist)
+        
     
     
-    def has_a(self):
-        a_value = 0
-        if self.num == 'a':
-            while (a_value == False):
-                a_value = input("A값을 1과 11중에 선택하세요.")
-                if a_value == 1:
-                    self.num = 1
-                    print("a_value>>>",self.num)
-                    break
-
-                elif a_value == 11:
-                    self.num = 1
-                    break
-
-                else:
-                    continue
-
-
-    def append_to_numberlist(self):
-            self.numberlist.append(self.num)
-            print("numberlist>>>", self.numberlist)
-
     def summation(self):
-        self.cardsum = reduce(lambda x, y: x + y, self.numberlist)  
+        ret = 0
+        a_value = False
+        for i in self.numberlist:
+            if i == 'a' and a_value == False:
+                a_value = input("a를 1로 하겠습니까? -> 1입력 아니면 11로 하겠습니까? -> 11입력")
+                if a_value == '11' or a_value == '1':
+                    i = int(a_value)
+                else:
+                    print("다시입력하세요")
+                        
+            ret += i
+
+        self.cardsum = ret
         print("cardsum>>>", self.cardsum)
+        return ret
 
 
 # g = Game()
@@ -78,13 +72,9 @@ class Game:
 class Player(Game):
     def play_game(self):
         self.game2()
-        self.has_a()
-        self.append_to_numberlist()
-        self.game2()
-        self.has_a()
-        self.append_to_numberlist()
         self.summation()
-       
+        self.game2()
+        self.summation()
 
 p = Player()
 p.play_game()
