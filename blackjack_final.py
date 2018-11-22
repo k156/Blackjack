@@ -21,16 +21,6 @@ class Game:
         
 
     def game2(self):
-<<<<<<< HEAD
-        while(True):
-            self.card = Game.game1()
-            if self.card not in self.cardlist:
-                self.cardlist.append(self.card)
-                self.num = self.card.lstrip(self.card[0])
-                
-                if self.num == 'k' or self.num == 'q' or self.num == 'j':
-                    self.num = 10
-=======
 
         self.card = g_deck.pop()
         self.cardlist.append(self.card)
@@ -39,7 +29,6 @@ class Game:
         
         if self.num == 'k' or self.num == 'q' or self.num == 'j':
             self.num = 10
->>>>>>> master
 
                 elif self.num == 'a':
                     pass
@@ -95,32 +84,12 @@ class Player(Game):
 
             while( self.cardsum < 21): 
                 
-<<<<<<< HEAD
-                self.game2()
-
-                for x, i in enumerate(self.numberlist):
-                    
-                    if len(self.numberlist) >= 2 and x < ( len(self.numberlist) - 1 ): continue 
-
-                    if i == 'a':
-                        input_a = input ("a의 값 결정 (1 = 1 입력, 11 = 11 입력) >> ")
-                        if input_a == '1':
-                            i = 1
-                        elif input_a == '11':       
-                            i = 11
-                    
-                    self.cardsum += i
-    
-                print("플레이어의 카드>>>", self.cardlist) 
-                
-=======
             elif self.cardsum > 21:
                 self.player_print()
 
             elif self.cardsum < 21: 
 
                 hitorstand = input("Hit 하고 싶으면 1, Stand 하고 싶으면 2를 입력하세요.")
->>>>>>> master
 
                 if self.cardsum == 21: 
                     self.player_print()
