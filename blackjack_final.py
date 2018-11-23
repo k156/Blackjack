@@ -1,16 +1,7 @@
 import random
 from functools import reduce
 import os
-
-
-g_deck = ['♠a','♠2','♠3','♠4','♠5','♠6','♠7','♠8','♠9','♠10','♠j','♠q','♠k',
-        '♣a','♣2','♣3','♣4','♣5','♣6','♣7','♣8','♣9','♣10','♣j','♣q','♣k',
-        '♥a','♥2','♥3','♥4','♥5','♥6','♥7','♥8','♥9','♥10','♥j','♥q','♥k',
-        '◆a','◆2','◆3','◆4','◆5','◆6','◆7','◆8','◆9','◆10','◆j','◆q','◆k']
-
-random.shuffle(g_deck)        
-
-
+  
 class Game:
   
     def __init__(self):
@@ -115,7 +106,7 @@ class Dealer(Game):
 
         for i in self.numberlist:
             if i == 'a':
-                    if (21 - self.cardsum) <= 10:
+                    if self.cardsum <= 10:
                         i = 11
                     else : 
                         i = 1
@@ -133,7 +124,7 @@ class Dealer(Game):
                 if len(self.cardlist) >= 2 and x < ( len(self.cardlist)- 1 ): continue 
                 
                 if i == 'a':
-                    if (21 - self.cardsum) <= 10:
+                    if self.cardsum <= 10:
                         i = 11
                     else : 
                         i = 1
