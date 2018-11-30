@@ -1,4 +1,6 @@
 # Blackjack
+![bj](https://user-images.githubusercontent.com/43925131/49265982-bd6bd580-f497-11e8-970a-2f7f920c53f2.jpg)
+
 
 프로젝트 설명
 ------------
